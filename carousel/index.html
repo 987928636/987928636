@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>jq无缝轮播图</title>
+		<link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/minireset.css/0.0.2/minireset.min.css" />
+		<script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
+		<style type="text/css">
+			body{
+				background-image: linear-gradient( 109.6deg,  rgba(44,83,131,1) 18.9%, rgba(95,175,201,1) 91.1% );
+			}
+			.swiper {
+				width: 700px;
+				overflow: hidden;
+				cursor: pointer;
+				position: relative;
+				float: left;
+				margin: 20px ;
+				border: 3px solid white;
+				box-shadow: 10px 0px 10px rgba(0,0,0,0.9) /*阴影出现在元素的右侧*/
+			}
+			.one {
+				margin-left: 100px;
+				margin-top: 60px;
+			}
+			.two {
+				width: 300px;
+			}
+
+			.three {
+				width: 300px;
+			}
+
+			.content {
+				width: 400%;
+				position: relative;
+			}
+
+			.content li {
+				float: left;
+				/* width: 25%; */
+				height: 100%;
+			}
+
+			img {
+				display: block;
+				width: 100%;
+			}
+
+			.pagination {
+				position: relative;
+				bottom: 30px;
+				left: 40%;
+				width: 140px;
+				height: 20px;
+				text-align: center;
+			}
+
+			.pagination li {
+				cursor: pointer;
+				text-align: center;
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				line-height: 20px;
+				background-color: white;
+				border-radius: 10px;
+				margin-right: 10px;
+				box-shadow: 0 0 3px #000000;
+				border: 1px solid #000000;
+				transition: all .3s;
+			}
+
+			.pagination li.active {
+				background-color: #56BBD4;
+				width: 30px;
+			}
+
+			.l,
+			.r {
+				text-decoration: none;
+				font-size: 46px;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 40px;
+				height: 60px;
+				line-height: 60px;
+				background-color: rgba(0, 0, 0, .3);
+				border-radius: 10px;
+				text-align: center;
+				color: white;
+				cursor: pointer;
+				display: none;
+				z-index: 2;
+			}
+
+			.l {
+				left: 0;
+			}
+
+			.r {
+				right: 0;
+			}
+
+			.l:hover,
+			.r:hover {
+				color: skyblue;
+			}
+		</style>
+	</head>
+	<!-- 禁止按钮选中文本 -->
+	<body onselectstart="return false" style={ -moz-user-select : none }>
+		<div class="swiper one">
+			<ul class="content">
+			</ul>
+			<ul class="pagination">
+			</ul>
+			<a href="javascript:;" class="l btn">&lsaquo;</a>
+			<a href="javascript:;" class="r btn">&rsaquo;</a>
+		</div>
+
+		<div class="swiper two">
+			<ul class="content">
+			</ul>
+			<ul class="pagination">
+			</ul>
+			<a href="javascript:;" class="l btn">&lsaquo;</a>
+			<a href="javascript:;" class="r btn">&rsaquo;</a>
+		</div>
+
+		<div class="swiper three">
+			<ul class="content">
+			</ul>
+			<ul class="pagination">
+			</ul>
+			<a href="javascript:;" class="l btn">&lsaquo;</a>
+			<a href="javascript:;" class="r btn">&rsaquo;</a>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			$.fn.banner = function(option) {
+				// 接收传递的数据
+				var data = option.data;
+				// 多少张图片
+				var len = data.length;
+				// 接收传递的数据，轮播时间
+				var time = option.time;
+				// 图片字符串
+				var pic_html = '';
+				// 定义导航点字符串
+				var point_html = '';
+				// 循环
+				for (var i = 0; i < len; i++) {
+					// 图片字符串的拼接
+					pic_html += '<li><a href="javascript:;"><img src="' + data[i].src + '" alt=""></a></li>';
+					// 导航点字符串拼接
+					point_html += '<li></li>';
+				}
+				// 根据传入图片的张数动态创建
+				this.find('ul').eq(0).html(pic_html)
+				this.find('ul').eq(1).html(point_html)
+				// 设置第一个导航点的背景色
+				this.find("ul").eq(1).children().eq(0).addClass("active");
+
+				// 定义变量接收图片的宽度
+				var width = this.width()
+				// 记录ul标签
+				var $ul = this.find('ul').eq(0);
+				// 图片的宽度等于盒子宽度
+				$ul.children().css('width', width)
+				// ul 宽度 = 图片宽度 * 张数
+				var ulWidht = width * len
+				$ul.css('width', ulWidht)
+				// 记录小圆点盒子
+				var $pag = this.find("ul").eq(1);
+				// 记录按钮
+				var $btn = this.find(".btn");
+				var $l = this.find(".l");
+				var $r = this.find(".r");
+
+				// 1、立即执行节流(防止用户多次点击出现播放错误)
+				function throttle_2(fun, wait) {
+					var flag = true
+					var timeout = null
+					return function() {
+						if (flag) {
+							fun.apply(this, arguments)
+							flag = false
+							timeout = setTimeout(function() {
+								flag = true
+							}, wait)
+						}
+					}
+				}
+
+				// 2、给每个图片一个索引值标识(这里是通过 each()方法循环)
+				$ul.children().each(function(index, ele) {
+					$(this).attr('title', index)
+				})
+				// 方法2：直接通过attr()
+				// $('.content li').attr('title', function (index) {
+				//     return index
+				// })
+
+				// 3、根据传值过滤查找出对应的图片
+				function filterByIndex(n) {
+					return $ul.children().filter(function(index) {
+						return $(this).attr('title') == n
+					})
+				}
+
+				// 4、高亮小圆点方法
+				function pagActive(n) {
+					$pag.children().each(function(index, ele) {
+						// console.log($(ele),index)
+						if (index == n) {
+							$(ele).addClass('active')
+						} else {
+							$(ele).removeClass('active')
+						}
+					})
+				}
+
+				// 5、显示下一张图片方法
+				function next() {
+					$ul.animate({
+						left: -width
+					}, function() {
+						// 动画完成后，把当前的第一张图片转移到最后面
+						$ul.children().first().appendTo($ul)
+						//恢复定位
+						$ul.css({
+							left: 0
+						})
+					})
+				}
+
+				// 6、显示上一张图片方法
+				function prev() {
+					$ul.css({
+						left: -width
+					}).animate({
+						left: '0'
+					})
+				}
+
+				// 7、点击小圆点的方法
+				function pagClick() {
+					// 获取当前显示图片的下标
+					var currentIndex = $ul.children().first().attr('title')
+					// 获取下一张显示图片的坐标
+					var prevIndex = $(this).index()
+					// console.log(currentIndex,prevIndex)
+					// 判断下标
+					if (currentIndex < prevIndex) {
+						// 即将显示的图片在 当前图片的后面
+						// 找到即将显示的图片插入到当前第一张之后
+						$ul.children().first().after(filterByIndex(prevIndex))
+						//执行下一张图片方法
+						next()
+					} else if (currentIndex > prevIndex) {
+						// 即将显示的图片在 当前图片的前面
+						// 找到即将显示的图片插入到当前第一张之后前
+						$ul.children().first().before(filterByIndex(prevIndex))
+						//执行上一张图片方法
+						prev()
+					}
+					// 调用高亮小圆点方法
+					pagActive(prevIndex)
+				}
+
+				// 8、点击小圆点
+				$('.pagination li').click(throttle_2(pagClick, 500))
+
+				// 9、轮播下一张按钮方法
+				function right() {
+					// 先获取当前第一张图片的坐标
+					var currentIndex = $ul.children().first().attr('title')
+					// 根据当前图片的坐标来确定下一张
+					var prevIndex = ++currentIndex > $ul.children().length - 1 ? 0 : currentIndex
+					//将确定好的下一张图片移到当前第一张图片的后面
+					$ul.children().first().after(filterByIndex(prevIndex))
+					//执行下一张图片方法
+					next()
+					// 调用高亮小圆点方法
+					pagActive(prevIndex)
+				}
+
+				// 10、轮播上一张按钮方法
+				function left() {
+					// 先获取当前第一张图片的坐标
+					var currentIndex = $ul.children().first().attr('title')
+					// 根据当前图片的坐标来确定上一张
+					var prevIndex = --currentIndex < 0 ? $ul.children().length - 1 : currentIndex
+					//将确定好的上一张图片移到当前第一张图片的前面
+					$ul.children().first().before(filterByIndex(prevIndex))
+					//执行上一张图片方法
+					prev()
+					// 调用高亮小圆点方法
+					pagActive(prevIndex)
+				}
+
+				// 11、点击下一张按钮
+				$r.click(throttle_2(right, 500))
+
+				// 12、点击上一张按钮
+				$l.click(throttle_2(left, 500))
+
+				// 13、自动轮播
+				var timer = null
+				timer = setInterval(function() {
+					$r.click()
+				}, time)
+
+				// 14、鼠标移入停止轮播
+				this.mouseover(function() {
+					clearInterval(timer)
+					$btn.show()
+				})
+
+				// 15、鼠标移出继续轮播
+				this.mouseout(function() {
+					$btn.hide()
+					timer = setInterval(function() {
+						$r.click()
+					}, time)
+				})
+			}
+
+			// 调用 轮播图插件
+			$('.one').banner({
+				data: [{
+						src: 'images/slide_01_640x340.jpg'
+					},
+					{
+						src: 'images/slide_02_640x340.jpg'
+					},
+					{
+						src: 'images/slide_03_640x340.jpg'
+					},
+					{
+						src: 'images/slide_04_640x340.jpg'
+					}
+				],
+				time: 2000
+			})
+			// 调用 轮播图插件
+			$('.two').banner({
+				data: [{
+						src: 'images/1.jpg'
+					},
+					{
+						src: 'images/2.jpg'
+					},
+					{
+						src: 'images/3.jpg'
+					},
+					{
+						src: 'images/4.jpg'
+					}
+				],
+				time: 4000
+			})
+			// 调用 轮播图插件
+			$('.three').banner({
+				data: [{
+						src: 'images/0001.png'
+					},
+					{
+						src: 'images/0002.png'
+					},
+					{
+						src: 'images/0003.png'
+					},
+					{
+						src: 'images/0004.png'
+					},
+					{
+						src: 'images/0005.png'
+					}
+				],
+				time: 6000,
+			})
+		}
+	</script>
+</html>
