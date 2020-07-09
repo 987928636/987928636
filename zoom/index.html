@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(163,175,243,1) 0%, rgba(220,182,232,1) 100.2% );
+			}
+			.box {
+				margin: 50px; 
+				display: flex;
+			}
+
+			.blowup {
+				width: 300px;
+				/* height: 300px; */
+				box-shadow: 0 0 3px black;
+				position: relative;
+				cursor: crosshair;
+				margin: 20px;
+				flex: 1;
+			}
+
+			.blowup img {
+				width: 100%;
+				display: block;
+			}
+
+			.blowup .zoom {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				border-radius: 50%;
+				/* background-image: url(img/0005.png); */
+				background-repeat: no-repeat;
+				border: 5px solid white;
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="left blowup">
+				<img src="img/0005.png">
+			</div>
+
+			<div class="right blowup">
+				<img src="img/0004.png">
+			</div>
+
+			<div class="cen blowup">
+				<img src="img/0003.png">
+			</div>
+		</div>
+	</body>
+	<script src="https://cdn.staticfile.org/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$.fn.blowup = function(leave) {
+			console.log(this)
+			// 盒子的宽高
+			var box = {
+				w: this.width(),
+				h: this.height()
+			}
+			// 动态添加一个滑块 zoom
+			this.append('<div class="zoom"></div>')
+			// 初始化放大镜的背景尺寸
+			this.find('.zoom').css({
+				backgroundSize: box.w * leave + 'px ' + box.h * leave + 'px',
+				backgroundImage: 'url(' + this.find('img').attr('src') + ')'
+			})
+			// 放大镜的宽高
+			var zoom = {
+				w: this.find('.zoom').outerWidth(),
+				h: this.find('.zoom').outerHeight()
+			}
+			// 移入盒子
+			this.on('mousemove', function(event) {
+				// 鼠标在盒子的坐标
+				var x = event.pageX - $(this).offset().left
+				var y = event.pageY - $(this).offset().top
+				// 滑块超出隐藏
+				if (x > box.w || x < 0 || y > box.h || y < 0) {
+					$(this).find('.zoom').hide()
+					return
+				}
+				$(this).find('.zoom').show()
+				// 滑块跟随鼠标移动
+				$(this).find('.zoom').css({
+					left: x - zoom.w / 2,
+					top: y - zoom.h / 2,
+					// 改变放大镜背景图的位置
+					backgroundPositionX: -(x * leave - zoom.w / 2) - 5,
+					backgroundPositionY: -(y * leave - zoom.h / 2) - 5
+				})
+			})
+		}
+		$('.left').blowup(2)
+		$('.cen').blowup(3)
+		$('.right').blowup(5)
+	</script>
+</html>
