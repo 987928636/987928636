@@ -975,7 +975,7 @@ pre .javascript .function {
   background: #fff;
 }
 .btn +.btn {
-  margin: 0 0 8px 8px;
+  margin: 0 0 8px -1px !important;
 }
 .btn .fa-fw {
   width: 1.285714285714286em;
@@ -1994,7 +1994,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #531dff;
+  background: #c2a4ff;
 }
 .links-of-blogroll {
   font-size: 13px;

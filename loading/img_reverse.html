@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html{
+				font-size: 22px;
+			}
+			body{
+				height: 100vh;
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+			background-image: radial-gradient( circle farthest-corner at 50.3% 44.5%,  rgba(116,147,179,1) 0%, rgba(62,83,104,1) 100.2% );
+			}
+			.container{
+				width: 300px;
+				height: 400px;
+				position: relative;
+				perspective: 1000px;
+			}
+			.cover,.back{
+				color: white;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				-webkit-backface-visibility: hidden;
+				backface-visibility: hidden;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition: .25s ease-in-out;
+				font-size: 2rem;
+				border-radius: .4rem;
+				box-shadow: 0 .2rem .5rem rgba(0,0,0,.18);
+				text-shadow: 0 .15rem .2rem rgba(0,0,0,.2);
+			}
+			.cover{
+				transform: rotateY(0deg);
+				/* background-color: aqua; */
+				background-image: radial-gradient( circle farthest-corner at 0.2% 1.8%,  rgba(255,90,8,1) 0%, rgba(88,0,0,1) 100.2% );
+			}
+			.container:hover .cover{
+				transform: rotateY(180deg);
+			}
+			.back{
+				transform: rotateY(-180deg);
+				background-image: radial-gradient( circle 426px at 77.9% 31.3%,  rgba(255,229,131,1) 0%, rgba(249,119,0,1) 90% );
+			}
+			.container:hover .back{
+				transform: rotateY(0deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="cover">
+				cover
+			</div>
+			<div class="back">
+				back
+			</div>
+		</div>
+		<div class="container">
+			<div class="cover">
+				cover
+			</div>
+			<div class="back">
+				back
+			</div>
+		</div>
+		<div class="container">
+			<div class="cover">
+				cover
+			</div>
+			<div class="back">
+				back
+			</div>
+		</div>
+	</body>
+</html>
