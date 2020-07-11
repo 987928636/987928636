@@ -56,7 +56,7 @@
 <div class="note primary"><h3 style='text-align: center;'>Bootstrap</h3>
 <br>
 <p>
-<a class="btn" href="http://localhost:4000/blog/test/" target="_blank" rel="noopener"><i class="fa fa-subscript fa-fw fa-lg"></i>放大镜</a>
+<a class="btn" href="http://localhost:4000/blog/chengduModel/" target="_blank" rel="noopener"><i class="fa fa-subscript fa-fw fa-lg"></i>成都模特网</a>
 <a class="btn" href="http://localhost:4000/blog/accordion/" target="_blank" rel="noopener"><i class="fa fa-unlink fa-fw fa-lg"></i>手风琴</a>
 <a class="btn" href="http://localhost:4000/blog/bootstrap/" target="_blank" rel="noopener"><i class="fa fa-terminal fa-fw fa-lg"></i>model</a>
 </p></div>
