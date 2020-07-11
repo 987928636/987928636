@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>flex骰子</title>
+		<style type="text/css">
+			.max{
+				width: 220px;
+				height: 220px;
+				background: transparent;
+				position: relative;
+				margin: 100px auto;
+				transform: rotateX(30deg) rotateY(30deg);
+				transform-style: preserve-3d;
+				animation: move 15s linear infinite;
+			}
+			
+			.box{
+				padding: 10px;
+				width: 200px;
+				height: 200px;
+				box-sizing: border-box;
+				border-radius: 10px;
+				box-shadow: 0 0 10px #000 inset;
+				display: flex;
+				position: absolute;
+				opacity: 1;
+				background: #FFFFFF;
+				
+				
+				/*width: 200px;
+				height: 200px;
+				background: pink;
+				display: flex;
+				position: absolute;
+				left: 10px;
+				top: 10px;*/
+			}
+			.box1{
+				transform: translateZ(100px);
+			}
+			.box2 {
+				transform: rotateY(90deg) translateZ(-100px);
+			}
+			.box3 {
+				transform: rotateX(90deg) translateZ(100px);
+			}
+			.box4 {
+				transform: rotateX(90deg) translateZ(-100px);
+			}
+			.box5 {
+				transform: rotateY(90deg) translateZ(100px);
+			}
+			.box6 {
+				transform: rotateY(0deg) translateZ(-100px);
+			}
+			@keyframes move {
+				from {
+					transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+				}
+				to {
+					transform: rotateX(720deg) rotateY(720deg) rotateZ(720deg);
+				}
+			}
+			.item{
+				width: 40px;
+				height: 40px;
+				border-radius:50% ;
+				background: black;
+				margin: 10px;
+				
+			}
+			.box1{
+				justify-content: center;
+				align-items: center;
+			
+			}
+			.box2{
+				justify-content: space-between;
+				align-items: center;
+			}
+			.box3{
+				justify-content: space-between;
+			}
+			.box3 :nth-child(2){
+				align-self: center;
+			}
+			.box3 :nth-child(3){
+				align-self: flex-end;
+			}
+			.box4{
+				display: flex;
+				justify-content: space-between;
+			}
+			.box4 .column{
+				display: flex;
+				justify-content: space-between;
+				flex-direction: column;
+			
+			}
+			.box5{
+				display: flex;
+				justify-content: space-between;
+			}
+			.box5 .column{
+				display: flex;
+				justify-content: space-between;
+				flex-direction: column;
+			}
+			.box5 :nth-child(2){
+				align-self: center;
+			}
+			.box6{
+				display: flex;
+				justify-content: space-between;
+				
+			}
+			.box6 .column{
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="max">
+		<div class=" box box1">
+			<span class="item"></span>
+		</div>
+		<div class=" box box2">
+			<span class="item"></span>
+			<span class="item"></span>
+		</div>
+		<div class=" box box3">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+		</div>
+		<div class=" box box4">
+			<div class="column">
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+			<div class="column">
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+		</div>
+		<div class=" box box5">
+			<div class="column">
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+			<div class="column">
+				<span class="item"></span>
+			</div>
+			<div class="column">
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+		</div>
+		<div class=" box box6">
+			<div class="column">
+				<span class="item"></span>
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+			
+			<div class="column">
+				<span class="item"></span>
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

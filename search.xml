@@ -1,35 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>我的第一篇文章</title>
-    <url>/blog/2020/07/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p><img src="/blog/images/vanke2.jpg" alt=""></p>
-<a id="more"></a>    
-<h1 id="第一篇文章"><a href="#第一篇文章" class="headerlink" title="第一篇文章"></a>第一篇文章</h1><h2 id="MarkDown的使用"><a href="#MarkDown的使用" class="headerlink" title="MarkDown的使用"></a>MarkDown的使用</h2><h3 id="标题（使用-表示，逐级递增）"><a href="#标题（使用-表示，逐级递增）" class="headerlink" title="标题（使用 # 表示，逐级递增）"></a>标题（使用 # 表示，逐级递增）</h3><h2 id="列表-（使用-表示）"><a href="#列表-（使用-表示）" class="headerlink" title="列表 （使用 - 表示）"></a>列表 （使用 - 表示）</h2><ul>
-<li>列表1</li>
-<li>列表2<br>  a 二级列表1<br>  b 二级列表2</li>
-</ul>
-<h2 id="链接-（使用-链接名-（链接地址））"><a href="#链接-（使用-链接名-（链接地址））" class="headerlink" title="链接 （使用[链接名]（链接地址））"></a>链接 （使用[链接名]（链接地址））</h2><p><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
-<h2 id="图片-（使用-图片名-（图片地址）注意前面有个-！）"><a href="#图片-（使用-图片名-（图片地址）注意前面有个-！）" class="headerlink" title="图片 （使用![图片名]（图片地址）注意前面有个 ！）"></a>图片 （使用![图片名]（图片地址）注意前面有个 ！）</h2><p><img src="http://localhost:4000/blog/images/header.jpg" alt="百度"></p>
-<h2 id="斜体-（左右各使用一个-‘-’-括起来）"><a href="#斜体-（左右各使用一个-‘-’-括起来）" class="headerlink" title="斜体 （左右各使用一个 ‘*’ 括起来）"></a>斜体 （左右各使用一个 ‘*’ 括起来）</h2><p><em>这是斜体</em></p>
-<h2 id="粗体-（左右各使用两个-‘-’-括起来）"><a href="#粗体-（左右各使用两个-‘-’-括起来）" class="headerlink" title="粗体 （左右各使用两个 ‘*’ 括起来）"></a>粗体 （左右各使用两个 ‘*’ 括起来）</h2><p><strong>这是粗体</strong></p>
-<h2 id="分割线-（使用三个‘-’）"><a href="#分割线-（使用三个‘-’）" class="headerlink" title="分割线 （使用三个‘-’）"></a>分割线 （使用三个‘-’）</h2><hr>
-<h2 id="单行代码-（使用-‘-’-括起来）"><a href="#单行代码-（使用-‘-’-括起来）" class="headerlink" title="单行代码 （使用 ‘`’ 括起来）"></a>单行代码 （使用 ‘`’ 括起来）</h2><p><code>&lt;p&gt;这是单行代码&lt;/p&gt;</code></p>
-<h2 id="多行代码-（左右各使用三个-‘-’-括起来）"><a href="#多行代码-（左右各使用三个-‘-’-括起来）" class="headerlink" title="多行代码 （左右各使用三个 ‘`’ 括起来）"></a>多行代码 （左右各使用三个 ‘`’ 括起来）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #box &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: blue;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="引用-（使用一个-‘-gt-’）"><a href="#引用-（使用一个-‘-gt-’）" class="headerlink" title="引用 （使用一个 ‘&gt;’）"></a>引用 （使用一个 ‘&gt;’）</h2><blockquote>
-<p>这是引用的内容</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
-        <tag>分享</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>作品展示</title>
     <url>/blog/2020/07/02/hello-world/</url>
     <content><![CDATA[<p><img src="/blog/images/vanke4.jpg" alt=""></p>
@@ -51,18 +22,49 @@
 <a class="btn" href="https://987928636.github.io/blog/hover/"><i class="fa fa-camera fa-fw fa-lg"></i>图文悬停动画效果</a>
 <a class="btn" href="https://987928636.github.io/blog/loading/"><i class="fa fa-barcode fa-fw fa-lg"></i>loading加载动画</a>
 <a class="btn" href="https://987928636.github.io/blog/loading/loading.html"><i class="fa fa-barcode fa-fw fa-lg"></i>动画小图标</a>
-<a class="btn" href="http://localhost:4000/blog/bootstrap/" target="_blank" rel="noopener"><i class="fa fa-shield fa-fw fa-lg"></i>model</a>
+<a class="btn" href="https://987928636.github.io/blog/loading/love.html"><i class="fa fa-home fa-fw fa-lg"></i>爱心立方体</a>
+<a class="btn" href="https://987928636.github.io/blog/loading/flex_3d.html"><i class="fa fa-home fa-fw fa-lg"></i>flex3D骰子</a>
+
 </p></div>
 
 <div class="note primary"><h3 style='text-align: center;'>Bootstrap</h3>
 <br>
 <p>
-<a class="btn" href="https://987928636.github.io/blog/chengduModel/"><i class="fa fa-subscript fa-fw fa-lg"></i>成都模特网</a>
+<a class="btn" href="https://987928636.github.io/blog/chengduModel/"><i class="fa fa-unlink fa-fw fa-lg"></i>成都模特网</a>
+<a class="btn" href="https://987928636.github.io/blog/bootstrap/"><i class="fa fa-barcode fa-fw fa-lg"></i>model</a>、
 <a class="btn" href="http://localhost:4000/blog/accordion/" target="_blank" rel="noopener"><i class="fa fa-unlink fa-fw fa-lg"></i>手风琴</a>
-<a class="btn" href="http://localhost:4000/blog/bootstrap/" target="_blank" rel="noopener"><i class="fa fa-terminal fa-fw fa-lg"></i>model</a>
 </p></div>
 
 <h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇文章</title>
+    <url>/blog/2020/07/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p><img src="/blog/images/vanke2.jpg" alt=""></p>
+<a id="more"></a>    
+<h1 id="第一篇文章"><a href="#第一篇文章" class="headerlink" title="第一篇文章"></a>第一篇文章</h1><h2 id="MarkDown的使用"><a href="#MarkDown的使用" class="headerlink" title="MarkDown的使用"></a>MarkDown的使用</h2><h3 id="标题（使用-表示，逐级递增）"><a href="#标题（使用-表示，逐级递增）" class="headerlink" title="标题（使用 # 表示，逐级递增）"></a>标题（使用 # 表示，逐级递增）</h3><h2 id="列表-（使用-表示）"><a href="#列表-（使用-表示）" class="headerlink" title="列表 （使用 - 表示）"></a>列表 （使用 - 表示）</h2><ul>
+<li>列表1</li>
+<li>列表2<br>  a 二级列表1<br>  b 二级列表2</li>
+</ul>
+<h2 id="链接-（使用-链接名-（链接地址））"><a href="#链接-（使用-链接名-（链接地址））" class="headerlink" title="链接 （使用[链接名]（链接地址））"></a>链接 （使用[链接名]（链接地址））</h2><p><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a></p>
+<h2 id="图片-（使用-图片名-（图片地址）注意前面有个-！）"><a href="#图片-（使用-图片名-（图片地址）注意前面有个-！）" class="headerlink" title="图片 （使用![图片名]（图片地址）注意前面有个 ！）"></a>图片 （使用![图片名]（图片地址）注意前面有个 ！）</h2><p><img src="http://localhost:4000/blog/images/header.jpg" alt="百度"></p>
+<h2 id="斜体-（左右各使用一个-‘-’-括起来）"><a href="#斜体-（左右各使用一个-‘-’-括起来）" class="headerlink" title="斜体 （左右各使用一个 ‘*’ 括起来）"></a>斜体 （左右各使用一个 ‘*’ 括起来）</h2><p><em>这是斜体</em></p>
+<h2 id="粗体-（左右各使用两个-‘-’-括起来）"><a href="#粗体-（左右各使用两个-‘-’-括起来）" class="headerlink" title="粗体 （左右各使用两个 ‘*’ 括起来）"></a>粗体 （左右各使用两个 ‘*’ 括起来）</h2><p><strong>这是粗体</strong></p>
+<h2 id="分割线-（使用三个‘-’）"><a href="#分割线-（使用三个‘-’）" class="headerlink" title="分割线 （使用三个‘-’）"></a>分割线 （使用三个‘-’）</h2><hr>
+<h2 id="单行代码-（使用-‘-’-括起来）"><a href="#单行代码-（使用-‘-’-括起来）" class="headerlink" title="单行代码 （使用 ‘`’ 括起来）"></a>单行代码 （使用 ‘`’ 括起来）</h2><p><code>&lt;p&gt;这是单行代码&lt;/p&gt;</code></p>
+<h2 id="多行代码-（左右各使用三个-‘-’-括起来）"><a href="#多行代码-（左右各使用三个-‘-’-括起来）" class="headerlink" title="多行代码 （左右各使用三个 ‘`’ 括起来）"></a>多行代码 （左右各使用三个 ‘`’ 括起来）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot; &#x2F;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        #box &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background: blue;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="引用-（使用一个-‘-gt-’）"><a href="#引用-（使用一个-‘-gt-’）" class="headerlink" title="引用 （使用一个 ‘&gt;’）"></a>引用 （使用一个 ‘&gt;’）</h2><blockquote>
+<p>这是引用的内容</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>前端</category>
